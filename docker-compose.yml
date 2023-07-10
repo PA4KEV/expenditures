@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    container_name: expenses_db
+    build: ./database
+    environment:
+      - MYSQL_ROOT_PASSWORD=zairyo
+      - MYSQL_DATABASE=expenses
+    ports:
+      - "33066:3306"
+    volumes:
+      - portfolio-db:/var/lib/mysql
+    networks:
+      - portfolio-network
+
+volumes:
+  portfolio-db:
+
+networks:  
+  portfolio-network:
